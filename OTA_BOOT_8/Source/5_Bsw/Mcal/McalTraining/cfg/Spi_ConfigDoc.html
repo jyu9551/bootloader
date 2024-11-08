@@ -1,0 +1,206 @@
+<!--
+
+<html>
+  <head>
+    <title>SPI Driver Details</title>
+  </head>
+  <body>
+    <style type="text/css">
+table{table-layout: fixed;width: 300px;}
+table.curvedEdges { border:10px solid ;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px; }
+table.curvedEdges td, table.curvedEdges th { border-bottom:1px dotted black;overflow: hidden;width: 400px;padding:5px; }
+</style>
+    <style type="text/css">
+table{table-layout: fixed;width: 300px;}
+table.curvedEdgesSpi { border:10px solid ;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px; }
+table.curvedEdgesSpi td, table.curvedEdgesSpi th { border-bottom:1px dotted black; padding:3px; }
+</style>
+<!-- Be sure to place the above styles (i.e. everything between the <style></style> tags) into the document 'head' (i.e. between the <head></head> tags. Everything below goes inside the <body></body> tags) -->		
+    <p>
+      &nbsp;</p>  
+    <h2>
+      /************************************ SPI HW-SW MAP ************************************/</h2>
+    <table border="3" cellpadding="5" cellspacing="0" class="curvedEdgesSpi">
+      <caption><strong>
+        Table 1: Configured QSPI modules</strong></caption>
+      <thead>
+        <tr>
+          <th scope="col" width=200px>
+            QSPI Module</th>
+          <th scope="col" width=200px>
+            Configured/Available</th>
+          <th scope="col" width=200px>
+            Safety Level</th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+
+
+
+
+
+
+
+
+                                
+
+<!-- This snippet must be checked before we assign slave related values to QSPIn variables. -->		
+
+
+        <tr>
+        	<td>QSPI0</td>
+        	          <td>Configured: Master</td>
+        	              <td>QM</td>
+                              </tr>
+        <tr>
+        	<td>QSPI1</td>
+        	          <td>Not Configured</td>
+          <td> -- </td>            
+                  </tr>
+        <tr>
+        	<td>QSPI2</td>
+        	          <td>Not Configured</td>
+          <td> -- </td>            
+                  </tr>
+        <tr>
+        	<td>QSPI3</td>
+        	          <td>Not Configured</td>
+          <td> -- </td>            
+                  </tr>
+        <tr>
+        	<td>QSPI4</td>
+        	          <td>Not Available</td>
+          <td> -- </td>
+                  </tr>
+        <tr>
+        	<td>QSPI5</td>
+        	          <td>Not Available</td>
+          <td> -- </td>
+                  </tr>
+
+    <table border="3" cellpadding="5" cellspacing="0" class="curvedEdgesSpi">
+      <caption><strong>
+        Table 2: SPI SFR Usage API wise</strong></caption>
+      <thead>
+        <tr>
+          <th scope="col" width=200px>
+            API Name</th>
+          <th scope="col" width=200px>
+            SFR's Used</th>
+          <th scope="col" width=200px>
+            Remarks</th>
+        </tr>
+
+      </thead>
+      <tbody>
+
+          <td>Spi_Init</td>
+          <td>BACONENTRY, CLC, GLOBALCON, PISEL, DATAENTRY[0], RXEXIT, ECON
+          <td>--</td>		  
+
+    
+
+      <tr>
+          <td>Spi_DeInit</td>
+          <td>SSOC, GLOBALCON, CLC, ECON
+          	<br>Port: OMR</td>
+          <td>--</td>		  
+      </tr>
+
+    
+     
+    
+    
+      <tr>
+          <td>Spi_SetupEB</td>
+          <td>No SFR's Used</td>
+          <td>--</td>		  
+      </tr>
+    
+      <tr>
+          <td>Spi_GetStatus</td>
+          <td>STATUS</td>
+          <td>--</td>		  
+      </tr>
+      <tr>
+          <td>Spi_GetJobResult</td>
+          <td>No SFR's Used</td>
+          <td>--</td>		  
+      </tr>
+      <tr>
+          <td>Spi_GetSequenceResult</td>
+          <td>No SFR's Used</td>
+          <td>--</td>		  
+      </tr>
+    
+     
+      <tr>
+          <td>Spi_SyncTransmit</td>
+          <td>BACON, BACONENTRY, DATAENTRY[0], FLAGSCLEAR, GLOBALCON, GLOBALCON1, STATUS, RXEXIT, SSOC
+          	<br>Port: OMR
+          <td>--</td>		  
+      </tr>
+    
+     
+      <tr>
+          <td>Spi_GetHWUnitStatus</td>
+          <td>STATUS</td>
+          <td>--</td>		  
+      </tr>
+    
+        
+     
+    
+  </body>
+</html>                                    
+<br><br>
+    <table border="3" cellpadding="5" cellspacing="0" class="curvedEdgesSpi">
+      <caption><strong><br>
+        Table 3: Common SFR and Memory Range</strong></caption>
+      <thead>
+        <tr>
+          <th scope="col" width=200px>
+            Start Address</th>
+          <th scope="col" width=200px>
+            End Address</th>
+          <th scope="col" width=200px>
+            Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+      <tr>
+          <td>SPI_HW_MODULE[m].CLC</td>
+          <td>SPI_HW_MODULE[m].RXEXIT</td>
+          <td>where m : QSPI Module. <br>Refer Table 1 for configured QM modules</td>		  
+      </tr>
+      
+      
+      <tr>
+          <td>SPI_START_SEC_VAR_8BIT</td>
+          <td>SPI_STOP_SEC_VAR_8BIT</td>
+          <td>Variables for Status, Mode and Number of IB channels </td>		  
+      </tr>
+      <tr>
+          <td>SPI_START_SEC_VAR_32BIT</td>
+          <td>SPI_STOP_SEC_VAR_32BIT</td>
+          <td>Variables for configPtr(Only if PB), JobResult</td>		  
+      </tr>
+      <tr>
+          <td>SPI_START_SEC_VAR_FAST_32BIT</td>
+          <td>SPI_STOP_SEC_VAR_FAST_32BIT</td>
+          <td>Variables for Sync Lock and Dummy destPtr</td>		  
+      </tr>
+      <tr>
+          <td>SPI_START_SEC_VAR_UNSPECIFIED</td>
+          <td>SPI_STOP_SEC_VAR_UNSPECIFIED</td>
+          <td>Variables for Status, IB/EB Buffers,Job,Channel,Sequence</td>		  
+      </tr>
+      
+      <h2><br>
+      /************************** SPI MPU Settings **************************/</h2>
+            	
+
+

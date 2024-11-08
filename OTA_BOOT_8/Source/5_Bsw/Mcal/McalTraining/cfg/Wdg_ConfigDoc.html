@@ -1,0 +1,265 @@
+<!--
+*****************************************************************************
+**                                                                            **
+** Copyright (C) Infineon Technologies (2013)                                 **
+**                                                                            **
+** All rights reserved.                                                       **
+**                                                                            **
+** This document contains proprietary information belonging to Infineon       **
+** Technologies. Passing on and copying of this document, and communication   **
+** of its contents is not permitted without prior written authorization.      **
+**                                                                            **
+********************************************************************************
+**                                                                            **
+**  $FILENAME   : Wdg_ConfigDoc.html $                                       **
+**                                                                            **
+**  $CC VERSION : \main\5 $                                                  **
+**                                                                            **
+**  $DATE       : 2014-07-16 $                                               **
+**                                                                            **
+**  AUTHOR      : DL-AUTOSAR-Engineering                                      **
+**                                                                            **
+**  VENDOR      : Infineon Technologies                                       **
+**                                                                            **
+**  DESCRIPTION : This file contains                                         **
+**                the Configuration description for WDG driver               **
+**                                                                            **
+**  MAY BE CHANGED BY USER [yes/no]: No                                       **
+**                                                                            **
+** Traceabilty :[cover parentID= SAS_MCAL_WDG_0501,SAS_MCAL_WDG_0505]         **
+**                                                                            **
+** [/cover]   
+********************************************************************************
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+<html>
+<head>
+   
+   <h1> WDG Driver Details</h1>
+  </head>
+  <body>
+  <style type="text/css">
+table{table-layout: fixed;width: 300px;}
+table.curvedEdges { border:10px solid ;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px; }
+table.curvedEdges td, table.curvedEdges th { border-bottom:1px dotted black;overflow: hidden;width: 400px;padding:5px; }
+</style>
+  <h2 style=" text-align:centr;">/**********************************Section 1:  HW-SW Map******************************************/</h2>
+ <p style="color:black;text-align:left;"> <strong> Table 1: Configured Groups </strong></p>
+ <table border= "2" cellpadding="5" cellspacing="0" style="width: 100%">
+   <tr> 
+   <thead>
+    <th style=text-align:left">  WDT  </th> 
+	<th > Safety Level </th>  
+	 </thead>
+   </tr>
+   <tbody>
+   <tr> 
+		<td>  WDG 0</td> 	
+		<td> QM </td> 		
+	</tr>
+    <tr> 
+		<td> WDG 1 </td> 	
+		<td> QM </td> 	
+   </tr>
+      </tbody>
+   </table>
+        <h2>/*******************************Section 2:  MPU Settings*******************************************/ </h2> 
+		
+				 <p style="color:black;text-align:center"> <strong> Table 1: WDG  SFR channel </strong>  </p>
+		<table border = "2" cellpadding="10" cellspacing="0" style="width: 100%">
+		<thead>
+		<th> TIMER </th>
+		<th> GTM Module </th>
+		<th> Module no </th>
+		<th> Channel no </th> </thead>
+		<tbody>
+		
+		<tr>
+				<td>WDG0</td>
+		<td>TOM</td>
+		<td>0</td>
+		<td> 1  </td></tr>
+		
+		
+		
+		<tr>
+		
+		</tr>
+	    </tbody>	
+				</table>
+		
+		
+		<p style="color:black;text-align:center"> <strong>     		Table 2: WDG  SFR and Memory Range 
+			
+		<table border = "2" cellpadding="10" cellspacing="0" style="width: 100%">
+<tr> 
+   <thead>
+	<th> Timer </th>
+	<th> Section Start Address</th> 
+	<th> Section End Address</th> 
+	<th> Remarks </th> </thead>
+</tr>
+<tbody>
+	<tr >
+		<td rowspan="3">WDG0</td>
+		<td>SCU_WDTCPU0_CON0</td>
+		<td>SCU_WDTCPU0_SR</td>
+		<td>WDG0 password and reload value setting </td>
+	</tr>
+	<tr>
+		        <td>GTM_TOM0_CH1_CM0</td>
+		<td>GTM_TOM0_CH1_SR0</td>
+		<td>Includes Counter Registers,Compare 0 Registers and Shadow 0 Registers of configured TOM Channels</td>   
+			</tr>
+	<tr>
+		<td> GTM_TOM0_TGC0_ENDIS_STAT</td>
+	<td> GTM_TOM0_TGC1_ENDIS_STAT</td>
+	<td><li>Includes SFR's to enable or disable TOMx channels </li> 
+	<li>			 Number of channels in each TOMx is x =0-15
+			
+	<li> 	        			 Number of TOMx.. where x=0,1
+			 		
+			</td>
+		</tr>
+ 
+	<tr>
+    <td rowspan=3 valign=top>
+    WDG1
+    </td><td>
+      SCU_WDTCPU1_CON0
+    </td>
+	<td>SCU_WDTCPU1_SR</td>
+	<td>WDG1 password and reload value setting </td>
+  </tr><tr>
+    </tr>
+  <tr>
+    </tr>
+</tr>
+	 	 </tbody>	
+	</thead>	
+	</table>
+		
+		
+		
+		
+   <p style="color:black;text-align:center"> <strong> 			Table 3: WDG  Code and Memory Range  
+			
+   <table border = "2" cellpadding="10" cellspacing="0" style="width: 100%">
+   <tr> 
+   <thead>
+	<th> Section Start Address</th> 
+	<th> Section End Address</th> 
+	<th> Remarks </th> </thead>
+   </tr>
+   <tbody>
+       <tr> 
+		<td> WDG_17_SCU_START_SEC_VAR_32BIT  </td> 
+	<td> WDG_17_SCU_STOP_SEC_VAR_32BIT </td> 
+	<td> Wdg_kConfigPtr,WdgPBFixedAddress == STD_OFF</td> 
+   </tr>
+        <tr> 
+
+	<td>  WDG_17_SCU_START_SEC_VAR_16BIT </td> 
+	<td>  WDG_17_SCU_STOP_SEC_VAR_16BIT </td> 
+	<td>  WDG driver variable setting (only for AUTOSAR functionality) </td> 
+	<tr>
+
+	<td>  WDG_17_SCU_START_SEC_CODE </td> 
+	<td>  WDG_17_SCU_STOP_SEC_CODE </td> 
+	<td>  WDG driver-Basic AUTOSAR & Safety functionality </td> 
+   </tr>
+   <tr>
+
+	<td>  WDG_17_SCU_START_SEC_VAR_UNSPECIFIED </td> 
+	<td>  WDG_17_SCU_STOP_SEC_VAR_UNSPECIFIED </td> 
+	<td>  WDG driver current mode and state(only for AUTOSAR function)</td> 
+   </tr>
+   
+   </tbody>
+   </table>
+   
+   
+   
+   <p style="color:black;text-align:center"> <strong> 
+     			Table 4: WDG SFR Usage  
+			
+    <table border = "2" cellpadding="10" cellspacing="0" style="width: 100%">
+   <tr> 
+   <thead>
+    <th centre > API Name </th> 
+	<th> SFRs Used </th> 
+	<th> Remarks </th> </thead>
+   </tr>
+   <tbody>
+   <tr> 
+	<td> Wdg_17_Scu_Init </td> 
+	<td> SCU_WDTCPUxCON1, SCU_WDTCPUxCON0, SCU_WDTCPUxSR </td> 
+	<td> x-holds corresponding CPU WDG </td> 
+   </tr>
+   <tr> 
+	<td> Wdg_17_Scu_SetMode </td> 
+	<td> SCU_WDTCPUxCON1, SCU_WDTCPUxCON0  </td> 
+	<td> x-holds corresponding CPU WDG</td> 
+   </tr>
+   <tr> 
+	<td> Wdg_17_Scu_SetTriggerCondition </td> 
+	<td> SCU_WDTCPUxCON0 </td> 
+	<td> x-holds corresponding CPU WDG</td> 
+   </tr>
+    <tr> 
+	<td> Wdg_17_Scu_SafeTrigger </td> 
+	<td> SCU_WDTCPUxCON0 </td> 
+	<td> x-holds corresponding CPU WDG </td> 
+   </tr>
+    <tr> 
+	<td> Wdg_17_Scu_SetOffMode </td> 
+	<td> SCU_WDTCPUxCON1, SCU_WDTCPUxCON0  </td> 
+	<td> x-holds corresponding CPU WDG </td> 
+   </tr>
+   </tbody>
+   </table>
+   </body>
+          <h2>/***************************Section 3:  Periodic SFR Check For WDG***************************************/ </h2>
+   
+    <p style="color:black;text-align:center"> <strong> Table 1: WDG CON1 SFR </strong> </p>
+    <table border = "2" cellpadding="10" cellspacing="0" style="width: 100%">
+   <tr> 
+   <thead>
+    <th centre > Register Name</th> 
+	<th> Value </th> 
+	</thead>
+   </tr>
+   <tbody>
+   <tr>
+   <td> SCU_WDTCPU0_CON1</td>
+   <td> 0x00000004U </td>
+   </tr>
+    <tr>
+   <td> SCU_WDTCPU1_CON1</td>
+   <td>0x00000008U </td>
+   </tr>
+    <tr>
+	  
+    </tbody>
+   </table>
+   
+</html>
+

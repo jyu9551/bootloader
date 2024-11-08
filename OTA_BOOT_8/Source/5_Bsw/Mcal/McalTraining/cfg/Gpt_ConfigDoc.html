@@ -1,0 +1,129 @@
+
+<html>
+  <head>
+    <title>GPT Driver Details</title>
+  </head>
+  <body>
+    <style type="text/css">
+table{table-layout: fixed;width: 300px;}
+table.curvedEdges { border:10px solid ;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px; }
+table.curvedEdges td, table.curvedEdges th { border-bottom:1px dotted black;overflow: hidden;width: 400px;padding:5px; }
+</style>
+<!-- Be sure to place the above styles (i.e. everything between the <style></style> tags) into the document 'head' (i.e. between the <head></head> tags. Everything below goes inside the <body></body> tags) -->       
+    <p>
+      &nbsp;</p>  
+    <h2>
+      /*****************************************GPT HW-SW MAP*****************************************/</h2>
+    <table border="1" cellpadding="5" cellspacing="0" class="curvedEdges" width="100%">
+      <caption><strong>
+        Table 1: Api Usage and SFR access</strong></caption>
+      <thead>
+        <col width="300">
+        <col width="700">
+        <col width="300"> 
+        <tr>
+          <th scope="col">
+            API Name</th>
+          <th scope="col">
+            SFRs Used</th>
+          <th scope="col">
+            Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Gpt_Init</td>
+          <td>
+            TOMi_CHx_CTRL            </td>
+          <td>Where i refers to TOM module number and x refers to channel number</td>
+        </tr>
+                <tr>
+          <td>
+            Gpt_DeInit</td>
+          <td>TOMi_CHx_CTRL,TOMi_CHx_IRQ_NOTIFY,TOMi_CHx_IRQ_EN,
+          TOMi_CHx_CN0,TOMi_CHx_CM0,TOMi_CHx_SR0</td>
+          <td>
+            Where i refers to TOM module number and x refers to channel number
+          </td>
+        </tr>
+                <tr>
+          <td>
+            Gpt_StartTimer</td>
+          <td>
+            TOMi_CHx_CN0,TOMi_CHx_CM0,TOMi_CHx_SR0,TOMi_TGCy_ENDIS_CTRL,
+            TOMi_TGCy_ENDIS_STAT          </td>
+          <td>Where i refers to TOM module number, x refers to channel number and y refers to the TGC number(0 or 1)</td>
+        </tr>
+        <tr>
+          <td>
+            Gpt_StopTimer</td>
+          <td>TOMi_TGCy_ENDIS_CTRL,TOMi_TGCy_ENDIS_STAT</td>
+          <td>Where i refers to TOM module number, x refers to channel number nad y refers to the TGC number(0 or 1)</td>
+        </tr>
+                                <tr>
+          <td>
+            Gpt_GetTimeRemaining</td>
+          <td>TOMi_CHx_CN0,TOMi_CHx_CM0</td>
+          <td>
+            Where i refers to TOM module number and x refers to channel number
+          </td>
+        </tr> 
+                        <tr>
+          <td>
+            Gpt_EnableNotification</td>
+          <td>
+            TOMi_CHx_IRQ_NOTIFY,TOMi_CHx_IRQ_EN
+          </td>
+          <td>Where i refers to TOM module number and x refers to channel number</td>          
+        </tr>   
+        <tr>
+          <td>
+            Gpt_DisableNotification</td>
+          <td>
+            TOMi_CHx_IRQ_NOTIFY,TOMi_CHx_IRQ_EN</td>
+          <td>Where i refers to TOM module number and x refers to channel number</td>
+        </tr>
+                
+        
+        
+      </tbody>
+      </table>   
+
+      <p>
+      &nbsp;</p>     
+
+    <table border="3" cellpadding="5" cellspacing="0" class="curvedEdges">
+      <caption><strong>
+        Table 2: GPT Configured Channels</strong></caption>
+        <thead>
+        <col width="250">
+        <col width="250">
+        <col width="250">
+        <col width="250">
+                <th> GPT Channel </th>
+        <th> GTM Module </th>
+        <th> Module no </th>
+        <th> Channel no </th> 
+                </thead>
+        <tbody>
+
+
+        <tr>
+        <td>GPT_Channel_0</td>
+        <td>TOM</td>
+        <td>0</td>
+        <td>0</td>
+        
+        </tr>
+
+
+        </tbody>    
+
+        </table>    
+    <p>
+      &nbsp;</p>      
+    <h2>
+
+  </body>
+</html>                                    

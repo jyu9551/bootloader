@@ -1,0 +1,226 @@
+<?xml version='1.0'?>
+<datamodel version="3.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/08/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/08/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar" 
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd" 
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd" >
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="Fls" type="AR-PACKAGE">
+        <d:lst type="ELEMENTS">
+          <d:chc name="Fls" type="AR-ELEMENT" value="MODULE-CONFIGURATION">
+            <d:ctr type="MODULE-CONFIGURATION">
+              <a:a name="DEF" value="ASPath:/AURIX/Fls"/>
+              <d:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION" 
+                     value="VariantPostBuildSelectable">
+                <a:a name="IMPORTER_INFO" value="@DEF"/>
+              </d:var>
+              <d:lst name="FlsConfigSet" type="MAP">
+                <d:ctr name="FlsConfigSet_0" type="IDENTIFIABLE">
+                  <d:var name="FlsProtection" type="INTEGER" value="0">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="FlsCallCycle" type="FLOAT" value="0.01">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="FlsDefaultMode" type="ENUMERATION" 
+                         value="MEMIF_MODE_FAST">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="FlsMaxWriteNormalMode" type="INTEGER" value="32">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="FlsMaxWriteFastMode" type="INTEGER" value="32">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="FlsMaxReadNormalMode" type="INTEGER" value="32">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="FlsMaxReadFastMode" type="INTEGER" value="64">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="FlsAcErase" type="INTEGER" value="1880101320">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="FlsAcWrite" type="INTEGER" value="1880101120">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:lst name="FlsJobEndNotification">
+                    <d:var type="FUNCTION-NAME" value="Fee_JobEndNotification"/>
+                  </d:lst>
+                  <d:lst name="FlsJobErrorNotification">
+                    <d:var type="FUNCTION-NAME" value="Fee_JobErrorNotification"/>
+                  </d:lst>
+                  <d:var name="FlsWaitStateRead" type="ENUMERATION" 
+                         value="FLS_WAIT_STATE_READACCESS9">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:var name="FlsWaitStateErrorCorrection" type="ENUMERATION" 
+                         value="FLS_WAIT_STATE_ERRORCORRECTION1">
+                    <a:a name="IMPORTER_INFO">
+                      <a:v>@DEF</a:v>
+                      <a:v>@CALC</a:v>
+                    </a:a>
+                  </d:var>
+                  <d:lst name="FlsDemEventParameterRefs" type="MAP"/>
+                  <d:ctr name="FlsSectorList" type="IDENTIFIABLE">
+                    <d:lst name="FlsSector" type="MAP">
+                      <d:ctr name="FlsSector_0" type="IDENTIFIABLE">
+                        <d:var name="FlsSectorStartaddress" type="INTEGER" 
+                               value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="FlsSectorSize" type="INTEGER" value="65536">
+                          <a:a name="IMPORTER_INFO">
+                            <a:v>@DEF</a:v>
+                            <a:v>@CALC</a:v>
+                          </a:a>
+                        </d:var>
+                        <d:var name="FlsPageSize" type="INTEGER" value="8">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="FlsNumberOfSectors" type="INTEGER" 
+                               value="2">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:lst>
+                  </d:ctr>
+                  <d:lst name="FlsExternalDriver" type="MAP"/>
+                </d:ctr>
+              </d:lst>
+              <d:ctr name="FlsGeneral" type="IDENTIFIABLE">
+                <d:var name="FlsDevErrorDetect" type="BOOLEAN" value="false"/>
+                <d:var name="FlsPBFixedAddress" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlsDebugSupport" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlsUseInterrupts" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlsBaseAddress" type="INTEGER" value="2936012800">
+                  <a:a name="IMPORTER_INFO">
+                    <a:v>@DEF</a:v>
+                    <a:v>@CALC</a:v>
+                  </a:a>
+                </d:var>
+                <d:var name="FlsTotalSize" type="INTEGER" value="131072">
+                  <a:a name="IMPORTER_INFO">
+                    <a:v>@DEF</a:v>
+                    <a:v>@CALC</a:v>
+                  </a:a>
+                </d:var>
+                <d:var name="FlsAcLoadOnJobStart" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlsVersionInfoApi" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlsCancelApi" type="BOOLEAN" value="false"/>
+                <d:var name="FlsCompareApi" type="BOOLEAN" value="true"/>
+                <d:var name="FlsSetModeApi" type="BOOLEAN" value="false"/>
+                <d:var name="FlsGetStatusApi" type="BOOLEAN" value="true"/>
+                <d:var name="FlsGetJobResultApi" type="BOOLEAN" value="true"/>
+                <d:var name="FlsResetSfrAtInit" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlsDriverIndex" type="INTEGER" value="5"/>
+                <d:var name="FlsRunningInUser0Mode" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlsUserModeInitApiEnable" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlsUserModeRuntimeApiEnable" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:ctr name="FlsPublishedInformation" type="IDENTIFIABLE">
+                <d:var name="FlsAcSizeErase" type="INTEGER" value="200">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlsAcSizeWrite" type="INTEGER" value="200">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlsEraseTime" type="FLOAT" value="1000000.0">
+                  <a:a name="IMPORTER_INFO">
+                    <a:v>@CALC</a:v>
+                    <a:v>@DEF</a:v>
+                  </a:a>
+                </d:var>
+                <d:var name="FlsErasedValue" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlsSpecifiedEraseCycles" type="INTEGER" 
+                       value="125000">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlsWriteTime" type="FLOAT" value="150.0">
+                  <a:a name="IMPORTER_INFO">
+                    <a:v>@CALC</a:v>
+                    <a:v>@DEF</a:v>
+                  </a:a>
+                </d:var>
+                <d:var name="FlsAcLocationErase" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlsAcLocationWrite" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlsExpectedHwId" type="STRING" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:ctr name="FlsIfxSpecificConfig" type="IDENTIFIABLE">
+                <d:var name="FlsStateVarStruct" type="STRING" 
+                       value="FlsStateVar">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="FlsUseEraseSuspend" type="BOOLEAN" value="true"/>
+                <d:var name="FlsEraseSuspendTimeout" type="INTEGER" 
+                       value="30000"/>
+                <d:var name="FlsIllegalStateNotification" type="FUNCTION-NAME" 
+                       value="Fee_17_IllegalStateNotification"/>
+              </d:ctr>
+              <d:ctr name="CommonPublishedInformation" type="IDENTIFIABLE">
+                <d:var name="ArMajorVersion" type="INTEGER" value="3"/>
+                <d:var name="ArMinorVersion" type="INTEGER" value="2"/>
+                <d:var name="ArPatchVersion" type="INTEGER" value="0"/>
+                <d:var name="SwMajorVersion" type="INTEGER" value="2"/>
+                <d:var name="SwMinorVersion" type="INTEGER" value="3"/>
+                <d:var name="SwPatchVersion" type="INTEGER" value="0"/>
+                <d:var name="ModuleId" type="INTEGER" value="92">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="VendorId" type="INTEGER" value="17">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="VendorApiInfix" type="STRING" value="Pmu">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="Release" type="STRING" value="_TRICORE_TC234">
+                  <a:a name="IMPORTER_INFO">
+                    <a:v>@CALC</a:v>
+                    <a:v>@DEF</a:v>
+                  </a:a>
+                </d:var>
+              </d:ctr>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

@@ -1,0 +1,63 @@
+@echo off
+
+setlocal enabledelayedexpansion
+
+set FILL_PATTERN=0x00
+set HEXVIEW_PATH=..\Hexview\hexview.exe
+set FILE_NAME_APP=SCU_Gen6_Training_sign
+set FILE_NAME_BOOT=SCU_Gen6_BootTraining
+set FILE_NAME_INTEGRATION=SCU_Gen6_Integration
+
+set BMHD_ADDR_START=0x80000000
+set BOOT_ADDR_START=0x80000000
+set BOOT_ADDR_END=0x80027FFF
+set APP_ADDR_START=0x80040000
+set APP_ADDR_END=0x800FFFDF
+set APP_ADDR_VALID=0x8017FFE0
+
+If exist %FILE_NAME_INTEGRATION%.sx (
+	del %FILE_NAME_INTEGRATION%.sx
+)
+
+If exist SCU_Gen6.hex (
+	set CMD_BOOT_SRE=%HEXVIEW_PATH% SCU_Gen6.hex /s /XS:32 -o %FILE_NAME_BOOT%.sre
+	!CMD_BOOT_SRE!
+)
+
+:: clean
+If not exist %FILE_NAME_BOOT%.sre (
+	If exist subdir.mk (
+		del subdir.mk
+	)
+	If exist makefile (
+		del makefile
+	)
+	If exist Source (
+		rmdir /s /q Source
+	)
+	echo finish clear
+	exit
+)
+
+set CMD_BOOT_SX=%HEXVIEW_PATH% %FILE_NAME_BOOT%.sre /s /remap:0xA0000000-0xA000001F,%BMHD_ADDR_START%,0x20,0x100000 /XS:32 -o %FILE_NAME_BOOT%.sx
+!CMD_BOOT_SX!
+
+set CMD_BOOT_SX=%HEXVIEW_PATH% %FILE_NAME_BOOT%.sx /s /FP:%FILL_PATTERN% /FR:!BOOT_ADDR_START!-!BOOT_ADDR_END! /XS:32 -o %FILE_NAME_BOOT%.sx
+!CMD_BOOT_SX!
+
+copy /b %FILE_NAME_BOOT%.sx + %FILE_NAME_APP%.sx %FILE_NAME_INTEGRATION%.sx
+
+set CMD_INTEGRATION_SX=%HEXVIEW_PATH% %FILE_NAME_INTEGRATION%.sx /s /FR:%APP_ADDR_VALID%,32 /FP:000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F /XS:32 -o %FILE_NAME_INTEGRATION%.sx
+!CMD_INTEGRATION_SX!
+
+::set CMD_APP_SX=%HEXVIEW_PATH% %FILE_NAME_APP%.bin /s /remap:0x00000000-0x001FFFFF,0x80080000,0x17FFFF,0x80080000 /XS:32 -o appIntegration.sx
+::system("bunner\\Hexview\\hexview.exe application.sx /s /FR:0x801FFFE0,32 /FP:000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F /XS:32 -o application.sx");
+
+::set CMD_APP_SX=%HEXVIEW_PATH% %FILE_NAME_IN%.sre /s /FP:%FILL_PATTERN% /FR:!APP_ADDR_START!-!APP_ADDR_END! /XS:32 -o %FILE_NAME_IN%.sx
+::!CMD_APP_SX!
+
+::set CMD_APP_BIN=%HEXVIEW_PATH% %FILE_NAME_IN%.sx /s /XN -o %FILE_NAME_IN%.bin
+::!CMD_APP_BIN!
+
+
+pause
